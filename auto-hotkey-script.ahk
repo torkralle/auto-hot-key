@@ -26,6 +26,23 @@ F13 & y::^v
 
 F13 & c::^c
 
+; 半角全角キーを使う
 F13 & Space::
     Send {vkF3sc029}
+    Return
 
+; 検索窓を開く うまく動かない
+^Space::
+    Send #
+    Return
+
+; 画面を動かす
+
+; mouseの向きを逆に
+WheelUp::
+    Send {WheelDown}
+    Return
+
+WheelDown::
+    Send {WheelUp}
+    Return
