@@ -14,6 +14,7 @@ F13 & h::BS
 F13 & e::End
 F13 & a::Home
 
+; control + kはクリップボードにコピーで代替
 F13 & k::
     Send {ShiftDown}{END}{SHIFTUP}
     Sleep 50
@@ -22,8 +23,10 @@ F13 & k::
     Send {Del}
     Return
 
+; クリップボードがペースト
 F13 & y::^v
 
+; Ctrl + cに代替
 F13 & c::^c
 
 ; 半角全角キーを使う
@@ -31,14 +34,27 @@ F13 & Space::
     Send {vkF3sc029}
     Return
 
-; 検索窓を開く うまく動かない
-^Space::
-    Send #
+
+; Space&sc11DだとSpaceは使えなくなるが行けた
+
+; power toys runによるランチャー起動
+Ctrl & Space::
+    Send, {AltDown}{Space}{AltUp}
     Return
 
-; 画面を動かす
+; 画面移動　    
+; caps + key => win + key
+F13 & r::
+    Send {RWinDown}{Right}{RWinUp}
+    Return
+F13 & l::
+    Send {RWinDown}{Left}{RWinUp}
+    Return
+F13 & u::
+    Send {RWinDown}{Up}{RWinUp}
+    Return
 
-; mouseの向きを逆に
+;マウスを反転
 WheelUp::
     Send {WheelDown}
     Return
@@ -46,3 +62,15 @@ WheelUp::
 WheelDown::
     Send {WheelUp}
     Return
+
+; 数字全角→半角
+1::Send, {Numpad1}
+2::Send, {Numpad2}
+3::Send, {Numpad3}
+4::Send, {Numpad4}
+5::Send, {Numpad5}
+6::Send, {Numpad6}
+7::Send, {Numpad7}
+8::Send, {Numpad8}
+9::Send, {Numpad9}
+0::Send, {Numpad0}
