@@ -1,8 +1,13 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+﻿    if ErrorLevel != 1
+        Send, {AltUp}
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+; 修飾キーはUp, Downが必要
+
+; Emacs風キーバインド
 F13 & b::Left
 F13 & n::Down
 F13 & p::Up
@@ -74,3 +79,11 @@ WheelDown::
 8::Send, {Numpad8}
 9::Send, {Numpad9}
 0::Send, {Numpad0}
+
+; Command + Q
+Ctrl & q::
+    Send, {AltDown}{F4}{AltUp}
+    Return
+
+; Command + Tab
+Ctrl & Tab::AltTab
